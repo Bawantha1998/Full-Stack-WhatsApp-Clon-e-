@@ -22,10 +22,10 @@ export const addProduct = mutation({
 
 
 export const deleteProduct = mutation ({
-    args:{
-        id: v.id("product"),
-    },
-    handler: async (ctx, args) =>{
-        await ctx.db.delete(args.id);
-    },
+   args: {
+    id: v.id("products"),
+   } ,
+   handler: async (ctx,args) => {
+    await ctx.db.delete(args.id);
+   },
 });

@@ -1,5 +1,7 @@
 import {query, mutation} from "./_generated/server";
 import { v } from "convex/values";
+"use-client"
+
 
 export const getTasks = query ({
     handler: async (ctx,args) => {
@@ -10,13 +12,13 @@ export const getTasks = query ({
 
 
 // Add text
-export const addTask = mutation ({
+export const addTasks = mutation ({
     args: {
         text: v.string()
     },
     handler: async (ctx,args) =>{
-       const taskId = await ctx.db.insert("tasks",{text: args.text,completed:false});
-        return taskId;
+       const tasksId = await ctx.db.insert("tasks",{text: args.text,completed:false});
+        return tasksId;
     }
 })
 
@@ -32,7 +34,7 @@ export const completeTask = mutation ({
 
 // delete text 
 
-export const deleteTask = mutation ({
+export const deleteTasks = mutation ({
     args: {
         id: v.id("tasks"),
     },
